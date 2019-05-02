@@ -2,6 +2,7 @@ const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const session = require('koa-session');
 const passport = require('koa-passport');
+const cors = require('@koa/cors');
 
 const indexRoutes = require('./routes/index');
 const movieRoutes = require('./routes/movies');
@@ -11,6 +12,9 @@ const store = require('./session');
 
 const app = new Koa();
 const PORT = process.env.PORT || 1337;
+
+// cors
+app.use(cors());
 
 // sessions
 app.keys = ['super-secret-key'];
