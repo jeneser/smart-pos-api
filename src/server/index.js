@@ -8,6 +8,7 @@ const indexRoutes = require('./routes/index');
 const movieRoutes = require('./routes/movies');
 const productRoutes = require('./routes/products');
 const giftsRoutes = require('./routes/gifts');
+const ordersRoutes = require('./routes/orders');
 const authRoutes = require('./routes/auth');
 const store = require('./session');
 
@@ -34,6 +35,7 @@ app.use(indexRoutes.routes());
 app.use(movieRoutes.routes());
 app.use(productRoutes.routes());
 app.use(giftsRoutes.routes());
+app.use(ordersRoutes.routes());
 app.use(authRoutes.routes());
 
 // server
