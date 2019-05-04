@@ -1,5 +1,5 @@
 exports.up = (knex, Promise) => {
-  return knex.schema.createTable('products', (table) => {
+  return knex.schema.createTable('gifts', (table) => {
     table.increments();
     table
       .string('itemId')
@@ -8,15 +8,13 @@ exports.up = (knex, Promise) => {
     table.string('itemPic').notNullable();
     table.string('shortTitle').notNullable();
     table.string('title').notNullable();
-    table.string('itemPrice').notNullable();
-    table.string('originalPrice').notNullable();
-    table.string('itemSize').notNullable();
-    table.string('itemColor').notNullable();
+    table.string('itemPrice').nullable();
+    table.string('discountRate').nullable();
     table.string('itemType').notNullable();
     table.specificType('salePoints', 'text[]').notNullable();
   });
 };
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('products');
+  return knex.schema.dropTable('gifts');
 };

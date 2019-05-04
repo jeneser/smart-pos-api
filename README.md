@@ -7,7 +7,7 @@
 1. Fork/Clone
 1. Install dependencies - `npm install`
 1. Fire up Postgres and Redis on the default ports
-1. Create two local Postgres databases - `koa_api` and `koa_api_test`
+1. Create two local Postgres databases - `smart_pos_api` and `smart_pos_api_test`
 1. Migrate - `knex migrate:latest --env development`
 1. Seed - `knex seed:run --env development`
 1. Sanity check - `npm start`
@@ -25,26 +25,26 @@ sudo docker run --rm --name pgadmin4-docker -p 80:80 \
   -d dpage/pgadmin4
 ```
 
-1. postgres: use local host, such as: 192.168.0.101
+2. postgres: use local host, such as: 192.168.0.101
 
 ```
 sudo docker run --rm --name pg-docker -e POSTGRES_USER=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres
 ```
 
-1. create database
+3. create database
 ```
-sudo docker exec -it pg-docker psql -U postgres -c "create database koa_api"
+sudo docker exec -it pg-docker psql -U postgres -c "create database smart_pos_api"
 
-sudo docker exec -it pg-docker psql -U postgres -c "create database koa_api_test"
-```
-
-1. test it
-
-```
-sudo docker exec -it pg-docker psql -U postgres -c "\c koa_api" -c "select * from movies"
+sudo docker exec -it pg-docker psql -U postgres -c "create database smart_pos_api_test"
 ```
 
-1. install redis
+4. test it
+
+```
+sudo docker exec -it pg-docker psql -U postgres -c "\c smart_pos_api" -c "select * from movies"
+```
+
+5. install redis
 
 ```
 sudo docker run --rm --name redis-docker -d -p 6379:6379 -v $HOME/docker/volumes/redis:/data redis redis-server --appendonly yes

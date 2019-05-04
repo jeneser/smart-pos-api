@@ -12,7 +12,8 @@ exports.seed = (knex, Promise) => {
         originalPrice: '310',
         salePoints: ['女包', '当季新款'],
         itemSize: '96x96cm',
-        itemColor: '红色'
+        itemColor: '红色',
+        itemType: 'item'
       });
     })
     .then(() => {
@@ -26,7 +27,8 @@ exports.seed = (knex, Promise) => {
         originalPrice: '110',
         salePoints: ['红 165/96A', '当季新款'],
         itemSize: '197/96A',
-        itemColor: '红色'
+        itemColor: '红色',
+        itemType: 'item'
       });
     })
     .then(() => {
@@ -40,7 +42,8 @@ exports.seed = (knex, Promise) => {
         originalPrice: '340',
         salePoints: ['2019新款', '当季新款'],
         itemSize: '197/96A',
-        itemColor: '红色'
+        itemColor: '红色',
+        itemType: 'item'
       });
     })
     .then(() => {
@@ -54,7 +57,8 @@ exports.seed = (knex, Promise) => {
         originalPrice: '370',
         salePoints: ['名媛凉拖', '2019新款'],
         itemSize: '197/96A',
-        itemColor: '红色'
+        itemColor: '红色',
+        itemType: 'item'
       });
     })
     .then(() => {
@@ -68,7 +72,8 @@ exports.seed = (knex, Promise) => {
         originalPrice: '280.6',
         salePoints: ['夏装百搭', '韩版新款'],
         itemSize: '197/96A',
-        itemColor: '白色'
+        itemColor: '白色',
+        itemType: 'item'
       });
     })
     .then(() => {
@@ -82,7 +87,8 @@ exports.seed = (knex, Promise) => {
         originalPrice: '280.6',
         salePoints: ['2019春夏', '韩版新款'],
         itemSize: '197/96A',
-        itemColor: '红色'
+        itemColor: '红色',
+        itemType: 'item'
       });
     })
     .then(() => {
@@ -96,7 +102,8 @@ exports.seed = (knex, Promise) => {
         originalPrice: '280.6',
         salePoints: ['2019春夏', '复古百搭'],
         itemSize: '197/96A',
-        itemColor: '棕色'
+        itemColor: '棕色',
+        itemType: 'item'
       });
     });
 };

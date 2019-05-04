@@ -38,7 +38,11 @@ router.post('/auth/login', async (ctx) => {
   return passport.authenticate('local', (err, user, info, status) => {
     if (user) {
       ctx.login(user);
-      ctx.redirect('/auth/status');
+      // ctx.redirect('/auth/status');
+      ctx.body = {
+        status: 'success',
+        data: { id: user.id, username: user.username, admin: user.admin }
+      };
     } else {
       ctx.status = 400;
       ctx.body = { status: 'error' };
@@ -49,7 +53,8 @@ router.post('/auth/login', async (ctx) => {
 router.get('/auth/logout', async (ctx) => {
   if (helpers.ensureAuthenticated(ctx)) {
     ctx.logout();
-    ctx.redirect('/auth/login');
+    // ctx.redirect('/auth/login');
+    ctx.body = { status: 'success' };
   } else {
     ctx.body = { success: false };
     ctx.throw(401);
