@@ -16,7 +16,16 @@ const app = new Koa();
 const PORT = process.env.PORT || 1337;
 
 // cors
-app.use(cors());
+app.use(
+  cors({
+    origin: 'http://localhost:3000, http://www.pos.jeneser.wang',
+    allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
+    allowHeaders: ['X-PINGOTHER', 'Content-Type', 'Authorization', 'Accept'],
+    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+    maxAge: 86400,
+    credentials: true
+  })
+);
 
 // sessions
 app.keys = ['super-secret-key'];
