@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 1337;
 // cors
 app.use(
   cors({
-    origin: 'http://localhost:3000, http://www.pos.jeneser.wang',
+    origin: 'http://localhost:3000',
     allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
     allowHeaders: ['X-PINGOTHER', 'Content-Type', 'Authorization', 'Accept'],
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],

@@ -7,7 +7,7 @@
 1. Fork/Clone
 1. Install dependencies - `npm install`
 1. Fire up Postgres and Redis on the default ports
-1. Create two local Postgres databases - `koa_api` and `koa_api_test`
+1. Create two local Postgres databases - `smart_pos_api` and `smart_pos_api_test`
 1. Migrate - `knex migrate:latest --env development`
 1. Seed - `knex seed:run --env development`
 1. Sanity check - `npm start`
@@ -33,15 +33,15 @@ sudo docker run --rm --name pg-docker -e POSTGRES_USER=docker -d -p 5432:5432 -v
 
 3. create database
 ```
-sudo docker exec -it pg-docker psql -U postgres -c "create database koa_api"
+sudo docker exec -it pg-docker psql -U postgres -c "create database smart_pos_api"
 
-sudo docker exec -it pg-docker psql -U postgres -c "create database koa_api_test"
+sudo docker exec -it pg-docker psql -U postgres -c "create database smart_pos_api_test"
 ```
 
 4. test it
 
 ```
-sudo docker exec -it pg-docker psql -U postgres -c "\c koa_api" -c "select * from movies"
+sudo docker exec -it pg-docker psql -U postgres -c "\c smart_pos_api" -c "select * from movies"
 ```
 
 5. install redis
