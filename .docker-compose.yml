@@ -10,9 +10,9 @@ services:
       - $HOME/workspace/docker/volumes/postgresql:/var/lib/postgresql/data
     restart: always
     environment:
-      POSTGRES_USER: 'postgres-docker'
-      POSTGRES_PASSWORD: 'postgres-docker-7930'
-      POSTGRES_DB: 'smart_pos_api'
+      POSTGRES_USER: '**'
+      POSTGRES_PASSWORD: '**'
+      POSTGRES_DB: '**'
 
   redis:
     container_name: redis-docker
@@ -41,4 +41,4 @@ services:
       NODE_ENV: 'production'
       LOCAL_HOST: '192.168.0.101'
       ORIGIN_HOST: 'http://192.168.0.101:3000'
-      DATABASE_URL: 'postgres://postgres-docker:postgres-docker-7930@192.168.0.101:5432/smart_pos_api'
+      DATABASE_URL: 'postgres://**:**@192.168.0.101:5432/**'
