@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: postgres-docker
+    image: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - $HOME/workspace/docker/volumes/postgresql:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_USER: '**'
+      POSTGRES_PASSWORD: '**'
+      POSTGRES_DB: '**'
+
+  redis:
+    container_name: redis-docker
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - $HOME/workspace/docker/volumes/redis:/data
+    command: redis-server --appendonly yes
+    restart: always
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - '8080:8080'
+
+  smart-pos-api:
+    build: .
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - '8081:1337'
+    environment:
+      NODE_ENV: 'production'
+      LOCAL_HOST: '192.168.0.101'
+      ORIGIN_HOST: 'http://192.168.0.101:3000'
+      DATABASE_URL: 'postgres://**:**@192.168.0.101:5432/**'

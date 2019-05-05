@@ -13,12 +13,13 @@ const authRoutes = require('./routes/auth');
 const store = require('./session');
 
 const app = new Koa();
-const PORT = process.env.PORT || 1337;
+// const PORT = process.env.PORT || 1337;
+const PORT = 1337;
 
 // cors
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: process.env.ORIGIN_HOST,
     allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
     allowHeaders: ['X-PINGOTHER', 'Content-Type', 'Authorization', 'Accept'],
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
